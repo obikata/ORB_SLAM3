@@ -7,6 +7,7 @@ Examples/Monocular/mono_euroc
 Examples/Monocular/mono_kitti
 Examples/Monocular/mono_tum
 Examples/Monocular/mono_tum_vi
+Examples/Monocular/mono_lifecam
 
 Examples/Stereo/stereo_euroc
 Examples/Stereo/stereo_kitti
@@ -27,6 +28,8 @@ Examples/ROS/ORB_SLAM3/Stereo_Inertial
 
 Examples/ROS/ORB_SLAM3/CMakeLists.txt.user
 Examples/ROS/ORB_SLAM3/build/
+
+Examples/Datasets
 
 KeyFrameTrajectory.txt
 CameraTrajectory.txt
