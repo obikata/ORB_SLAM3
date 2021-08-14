@@ -153,6 +153,18 @@ add_executable(stereo_tum_vi
 Examples/Stereo/stereo_tum_vi.cc)
 target_link_libraries(stereo_tum_vi ${PROJECT_NAME})
 
+add_executable(stereo_unrealcam_tt
+Examples/Stereo/stereo_unrealcam_tt.cc)
+target_link_libraries(stereo_unrealcam_tt ${PROJECT_NAME})
+
+add_executable(stereo_unrealcam_ww
+Examples/Stereo/stereo_unrealcam_ww.cc)
+target_link_libraries(stereo_unrealcam_ww ${PROJECT_NAME})
+
+add_executable(stereo_unrealcam_tw
+Examples/Stereo/stereo_unrealcam_tw.cc)
+target_link_libraries(stereo_unrealcam_tw ${PROJECT_NAME})
+
 # Monocular examples
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/Monocular)
 

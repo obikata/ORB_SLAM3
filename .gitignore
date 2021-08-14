@@ -12,6 +12,8 @@ Examples/Monocular/mono_lifecam
 Examples/Stereo/stereo_euroc
 Examples/Stereo/stereo_kitti
 Examples/Stereo/stereo_tum_vi
+Examples/Stereo/stereo_unrealcam_tw
+Examples/Stereo/stereo_unrealcam_tt
 
 Examples/Monocular-Inertial/mono_inertial_euroc
 Examples/Monocular-Inertial/mono_inertial_tum_vi
@@ -50,3 +52,6 @@ cmake-build-debug/
 
 *.pyc
 *.osa
+
+.vscode/
+core
