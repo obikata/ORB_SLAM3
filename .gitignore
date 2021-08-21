@@ -14,6 +14,8 @@ Examples/Stereo/stereo_kitti
 Examples/Stereo/stereo_tum_vi
 Examples/Stereo/stereo_unrealcam_tw
 Examples/Stereo/stereo_unrealcam_tt
+Examples/Stereo/stereo_load
+Examples/Stereo/stereo_save
 
 Examples/Monocular-Inertial/mono_inertial_euroc
 Examples/Monocular-Inertial/mono_inertial_tum_vi
