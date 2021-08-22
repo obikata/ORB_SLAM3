@@ -12,8 +12,9 @@ Examples/Monocular/mono_lifecam
 Examples/Stereo/stereo_euroc
 Examples/Stereo/stereo_kitti
 Examples/Stereo/stereo_tum_vi
-Examples/Stereo/stereo_unrealcam_tw
 Examples/Stereo/stereo_unrealcam_tt
+Examples/Stereo/stereo_unrealcam_tw
+Examples/Stereo/stereo_unrealcam_ww
 Examples/Stereo/stereo_load
 Examples/Stereo/stereo_save
 
