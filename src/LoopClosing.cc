@@ -544,8 +544,11 @@ bool LoopClosing::DetectCommonRegionsFromBoW(std::vector<KeyFrame*> &vpBowCand, 
 
         // Current KF against KF with covisibles version
         std::vector<KeyFrame*> vpCovKFi = pKFi->GetBestCovisibilityKeyFrames(nNumCovisibles);
-        vpCovKFi.push_back(vpCovKFi[0]);
-        vpCovKFi[0] = pKFi;
+        if (vpCovKFi.size()>0)
+        {
+            vpCovKFi.push_back(vpCovKFi[0]);
+            vpCovKFi[0] = pKFi;
+        }
 
         std::vector<std::vector<MapPoint*> > vvpMatchedMPs;
         vvpMatchedMPs.resize(vpCovKFi.size());
