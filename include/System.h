@@ -173,8 +173,6 @@ public:
 
     void ChangeDataset();
 
-    void SaveAtlas(int type, string saveFileName);
-
 #ifdef REGISTER_TIMES
     void InsertRectTime(double& time);
 
@@ -182,8 +180,6 @@ public:
 #endif
 
 private:
-
-    bool LoadAtlas(string filename, int type);
 
     // Input sensor
     eSensor mSensor;

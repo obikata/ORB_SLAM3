@@ -28,8 +28,6 @@
 #include <mutex>
 
 #include <boost/serialization/base_object.hpp>
-#include <boost/serialization/map.hpp>
-#include <boost/serialization/set.hpp>
 
 
 namespace ORB_SLAM3
@@ -107,9 +105,6 @@ public:
 
     unsigned int GetLowerKFID();
 
-    void PreSave(std::set<GeometricCamera*> &spCams);
-    void PostLoad(KeyFrameDatabase* pKFDB, ORBVocabulary* pORBVoc, map<long unsigned int, KeyFrame*>& mpKeyFrameId, map<unsigned int, GeometricCamera*> &mpCams);
-    
     vector<KeyFrame*> mvpKeyFrameOrigins;
     vector<unsigned long int> mvBackupKeyFrameOriginsId;
     KeyFrame* mpFirstRegionKF;
@@ -133,14 +128,8 @@ protected:
     std::set<MapPoint*> mspMapPoints;
     std::set<KeyFrame*> mspKeyFrames;
 
-    std::vector<MapPoint*> mvpBackupMapPoints;
-    std::vector<KeyFrame*> mvpBackupKeyFrames;
-
     KeyFrame* mpKFinitial;
     KeyFrame* mpKFlowerID;
-
-    unsigned long int mnBackupKFinitialID;
-    unsigned long int mnBackupKFlowerID;
 
     std::vector<MapPoint*> mvpReferenceMapPoints;
 
@@ -169,42 +158,6 @@ protected:
     bool mbIMU_BA2;
 
     std::mutex mMutexMap;
-
-private:
-    friend class boost::serialization::access;
-
-    template<class Archive>
-    void serialize(Archive &ar, const unsigned int version)
-    {
-        ar & mnId;
-        ar & mnInitKFid;
-        ar & mnMaxKFid;
-        ar & mnBigChangeIdx;
-
-        ar & mspKeyFrames;
-        ar & mspMapPoints;
-
-        //ar & mvpBackupKeyFrames;
-        //ar & mvpBackupMapPoints;
-
-        ar & mvBackupKeyFrameOriginsId;
-
-        ar & mnBackupKFinitialID;
-        ar & mnBackupKFlowerID;
-        
-        ar & mpKFinitial;
-        ar & mpKFlowerID;
-
-        ar & mbImuInitialized;
-        ar & mbIsInertial;
-        ar & mbIMU_BA1;
-        ar & mbIMU_BA2;
-
-        ar & mnInitKFid;
-        ar & mnMaxKFid;
-        ar & mnLastLoopKFid;
-    }
-
 };
 
 } //namespace ORB_SLAM3

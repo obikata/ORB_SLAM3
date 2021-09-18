@@ -92,7 +92,6 @@ namespace ORB_SLAM3 {
 
         friend std::ostream& operator<<(std::ostream& os, const Pinhole& ph);
         friend std::istream& operator>>(std::istream& os, Pinhole& ph);
-
     private:
         cv::Mat SkewSymmetricMatrix(const cv::Mat &v);
         cv::Matx33f SkewSymmetricMatrix_(const cv::Matx31f &v);
@@ -101,16 +100,6 @@ namespace ORB_SLAM3 {
         //      [fx, fy, cx, cy]
 
         TwoViewReconstruction* tvr;
-
-    private:
-        friend class boost::serialization::access;
-
-        template<class Archive>
-        void serialize(Archive& ar, const unsigned int version)
-        {
-            ar & boost::serialization::base_object<GeometricCamera>(*this);
-        }
-
     };
 }
 

@@ -95,10 +95,6 @@ public:
     void SetImuInitialized();
     bool isImuInitialized();
 
-    // Function check serialization of this object
-    void PreSave();
-    void PostLoad();
-
     void SetKeyFrameDababase(KeyFrameDatabase* pKFDB);
     KeyFrameDatabase* GetKeyFrameDatabase();
 
@@ -110,9 +106,9 @@ public:
     long unsigned int GetNumLivedMP();
 
 protected:
+
     std::set<Map*> mspMaps;
     std::set<Map*> mspBadMaps;
-    std::vector<Map*> mvpBackupMaps;
     Map* mpCurrentMap;
 
     std::vector<GeometricCamera*> mvpCameras;
@@ -130,26 +126,6 @@ protected:
     KeyFrameDatabase* mpKeyFrameDB;
     ORBVocabulary* mpORBVocabulary;
 
-private:
-    friend class boost::serialization::access;
-
-    template<class Archive>
-    void serialize(Archive &ar, const unsigned int version)
-    {
-        // ar.template register_type<Pinhole>();
-        // ar.template register_type<KannalaBrandt8>();
-        ar & mspMaps;
-        ar & mvpBackupMaps;
-        // ar & mvpCameras;
-        ar & mvpBackupCamPin;
-        // ar & mvpBackupCamKan;
-        ar & Map::nNextId;
-        ar & Frame::nNextId;
-        ar & KeyFrame::nNextId;
-        ar & MapPoint::nNextId;
-        ar & GeometricCamera::nNextId;
-        ar & mnLastInitKFidMap;
-    }
 
 }; // class Atlas
 

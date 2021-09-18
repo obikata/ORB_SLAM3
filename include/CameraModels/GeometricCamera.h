@@ -92,18 +92,6 @@ namespace ORB_SLAM3 {
         unsigned int mnId;
 
         unsigned int mnType;
-
-    private:
-        friend class boost::serialization::access;
-
-        template<class Archive>
-        void serialize(Archive& ar, const unsigned int version)
-        {
-            ar & mvParameters; // Intrinsic camera parameters ( [fx, fy, cx, cy] for Pinhole, [fx, fy, cx, cy, k0, k1, k2, k3] for Fisheye )
-            ar & mnId; // Camera ID
-            ar & mnType; // Camera type
-        }
-
     };
 }
 
