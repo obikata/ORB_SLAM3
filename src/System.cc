@@ -74,19 +74,19 @@ System::System(const string &strVocFile, const string &strSettingsFile, const eS
 
     bool loadedAtlas = false;
 
-	//----
-	//Load ORB Vocabulary
-	cout << endl << "Loading ORB Vocabulary. This could take a while..." << endl;
+    //----
+    //Load ORB Vocabulary
+    cout << endl << "Loading ORB Vocabulary. This could take a while..." << endl;
 
-	mpVocabulary = new ORBVocabulary();
-	bool bVocLoad = mpVocabulary->loadFromTextFile(strVocFile);
-	if(!bVocLoad)
-	{
-		cerr << "Wrong path to vocabulary. " << endl;
-		cerr << "Falied to open at: " << strVocFile << endl;
-		exit(-1);
-	}
-	cout << "Vocabulary loaded!" << endl << endl;
+    mpVocabulary = new ORBVocabulary();
+    bool bVocLoad = mpVocabulary->loadFromTextFile(strVocFile);
+    if(!bVocLoad)
+    {
+        cerr << "Wrong path to vocabulary. " << endl;
+        cerr << "Falied to open at: " << strVocFile << endl;
+        exit(-1);
+    }
+    cout << "Vocabulary loaded!" << endl << endl;
 
     if(strLoadingFile.empty())
     {
@@ -101,7 +101,6 @@ System::System(const string &strVocFile, const string &strSettingsFile, const eS
 		// Load the file with an earlier session
         cout << "Load File " << strLoadingFile << endl;
 
-        //clock_t start = clock();
         bool isRead = LoadAtlas(strLoadingFile,1);
 
         if(!isRead)
@@ -124,11 +123,6 @@ System::System(const string &strVocFile, const string &strSettingsFile, const eS
 
         mpAtlas->CreateNewMap();
 
-        //clock_t timeElapsed = clock() - start;
-        //unsigned msElapsed = timeElapsed / (CLOCKS_PER_SEC / 1000);
-        //cout << "Binary file read in " << msElapsed << " ms" << endl;
-
-        //usleep(10*1000*1000);
     }
 
     if (mSensor==IMU_STEREO || mSensor==IMU_MONOCULAR)
