@@ -98,6 +98,7 @@ namespace ORB_SLAM3 {
 
         friend std::ostream& operator<<(std::ostream& os, const KannalaBrandt8& kb);
         friend std::istream& operator>>(std::istream& is, KannalaBrandt8& kb);
+
     private:
         const float precision;
 
@@ -108,6 +109,17 @@ namespace ORB_SLAM3 {
 
         void Triangulate(const cv::Point2f &p1, const cv::Point2f &p2, const cv::Mat &Tcw1, const cv::Mat &Tcw2,cv::Mat &x3D);
         void Triangulate_(const cv::Point2f &p1, const cv::Point2f &p2, const cv::Matx44f &Tcw1, const cv::Matx44f &Tcw2,cv::Matx31f &x3D);
+
+    private:
+        friend class boost::serialization::access;
+
+        template<class Archive>
+        void serialize(Archive& ar, const unsigned int version)
+        {
+            ar & boost::serialization::base_object<GeometricCamera>(*this);
+            ar & const_cast<float&>(precision);
+        }
+
     };
 }
 
